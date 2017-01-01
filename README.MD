@@ -8,6 +8,9 @@ it has two simple function:
 
 -  use onchange function to get the html content form the editor.
 
+# Demo:
+
+[click here to check demo]( http://lyn.s76.org/react-squire-editor/demo/index.html)
 
 # Usage:
 
