@@ -15,3 +15,22 @@ it has two simple function:
 npm install react-squire-editor
 
 ```
+
+in your component:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Editor from 'react-squire-editor';
+
+const app = document.getElementById('app');
+const editorOptions = {
+  uploadApi: 'http://yourUploadApi/common/upload?action=uploadimage&encode=utf-8',
+}
+function handleChange(value) {
+  console.log(value)
+}
+ReactDOM.render(
+  <Editor options={editorOptions} content={''} onChange={handleChange} />,
+app);
+```

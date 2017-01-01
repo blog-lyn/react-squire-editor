@@ -36,13 +36,13 @@ export default class Editor extends React.Component {
     if (this.editor) {
       this.editor.setHTML(this.props.content);
     }
-    options.uploadApi = options.uploadApi || '';
+    options.uploadFileName = options.uploadFileName||'filename';
+    options.uploadAction = options.uploadAction || '';
+    options.uploadData=options.uploadData||{type: '1'};
     const propsImg = {
-      name: 'filename',
-      action: options.uploadApi, // 'http://service.handsight.cn/common/upload?action=uploadimage&encode=utf-8',
-      data: {
-        type: '1',
-      },
+      name: options.uploadFileName,
+      action: options.uploadAction, 
+      data: options.uploadData,
       showUploadList: false,
       accept: 'image/png,image/jpeg,image/jpg',
       headers: {
@@ -52,6 +52,7 @@ export default class Editor extends React.Component {
     };
     let uploadImgBtn = '';
     if (options.uploadApi) {
+      console.log(`Your upload config : ${options}`)
       uploadImgBtn = (
         <Col span={3}>
             <Upload {...propsImg}>

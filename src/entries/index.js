@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import Editor from '../components/Editor';
 
 const app = document.getElementById('app');
+
 const editorOptions = {
-  uploadApi: 'http://service.handsight.cn/common/upload?action=uploadimage&encode=utf-8',
+  uploadAction: 'http://youruploadApi?action=uploadimage&encode=utf-8',
+  uploadFileName: 'filename',
+  uploadData: { type: '1' },
 }
 function handleChange(value) {
   console.log(value)
