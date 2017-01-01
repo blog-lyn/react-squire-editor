@@ -13,7 +13,5 @@ function handleChange(value) {
   console.log(value)
 }
 ReactDOM.render(
-  <div style={{ width: '1024px', margin: '0 auto' }}>
-    <Editor options={editorOptions} content={''} onChange={handleChange} />
-  </div>,
-app);
+  <Editor options={editorOptions} content={''} onChange={handleChange} />
+  , app);
