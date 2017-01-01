@@ -15,7 +15,7 @@ it has two simple function:
 # Usage:
 
 ```
-npm install react-squire-editor antd
+npm install react-squire-editor
 ```
 
 in your component:
