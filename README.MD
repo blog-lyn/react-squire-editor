@@ -12,8 +12,7 @@ it has two simple function:
 # Usage:
 
 ```
-npm install react-squire-editor
-
+npm install react-squire-editor antd
 ```
 
 in your component:
@@ -24,8 +23,11 @@ import ReactDOM from 'react-dom';
 import Editor from 'react-squire-editor';
 
 const app = document.getElementById('app');
+
 const editorOptions = {
-  uploadApi: 'http://yourUploadApi/common/upload?action=uploadimage&encode=utf-8',
+  uploadAction: 'http://youruploadApi?action=uploadimage&encode=utf-8',
+  uploadFileName: 'filename',
+  uploadData: { type: '1' },
 }
 function handleChange(value) {
   console.log(value)
