@@ -36,12 +36,12 @@ export default class Editor extends React.Component {
     if (this.editor) {
       this.editor.setHTML(this.props.content);
     }
-    options.uploadFileName = options.uploadFileName||'filename';
+    options.uploadFileName = options.uploadFileName || 'filename';
     options.uploadAction = options.uploadAction || '';
-    options.uploadData=options.uploadData||{type: '1'};
+    options.uploadData = options.uploadData || { type: '1' };
     const propsImg = {
       name: options.uploadFileName,
-      action: options.uploadAction, 
+      action: options.uploadAction,
       data: options.uploadData,
       showUploadList: false,
       accept: 'image/png,image/jpeg,image/jpg',
@@ -50,23 +50,29 @@ export default class Editor extends React.Component {
       },
       onChange: this.addImage.bind(this),
     };
-    let uploadImgBtn = '';
+    let toolBar = '';
     if (options.uploadApi) {
-      console.log(`Your upload config : ${options}`)
-      uploadImgBtn = (
-        <Col span={3}>
-            <Upload {...propsImg}>
-              <Button type="ghost">插入图片</Button>
-            </Upload>
-        </Col>);
+      if (options.debug) {
+        console.log(`Your upload config : ${options}`)
+      }
+      toolBar = (
+        <div>
+          <hr style={{ marginBottom: '10px' }} />
+          <Row style={{ padding: '0 10px' }} >
+            <Col span={3}>
+              <Upload {...propsImg}>
+                <Button type="ghost">插入图片</Button>
+              </Upload>
+          </Col>
+          </Row>
+        </div>
+      );
     }
+
     return (
-      <div style={{ width: '100%', height: 'auto', border: '1px solid #d9d9d9', paddingBottom: '10px', borderRadius: '6px' }}>
-        <div id="firstEditor" style={{ height: 'auto', outline: 'none', padding: ' 10px 10px 0', fontSize: '15px' }} ref="editor"></div>
-        <hr style={{ marginBottom: '10px' }} />
-        <Row style={{ padding: '0 10px' }} >
-           {uploadImgBtn}
-        </Row>
+      <div style={{ width: '100%', height: 'auto', minHeight: '50px', margin: '10px auto', border: '1px solid #d9d9d9', paddingBottom: '10px', borderRadius: '6px' }}>
+        <div style={{ height: 'auto', minHeight: '50px', outline: 'none', padding: ' 10px 10px 0', fontSize: '15px' }} ref="editor"></div>
+        {toolBar}
       </div>
     );
   }
