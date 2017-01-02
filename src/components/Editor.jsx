@@ -39,7 +39,7 @@ export default class Editor extends React.Component {
     options.uploadFileName = options.uploadFileName || 'filename';
     options.uploadAction = options.uploadAction || '';
     options.uploadData = options.uploadData || { type: '1' };
-    options.debug = options.debug || false;
+    options.debug = options.debug || '';
     const propsImg = {
       name: options.uploadFileName,
       action: options.uploadAction,

@@ -5,10 +5,10 @@ import Editor from '../components/Editor';
 const app = document.getElementById('app');
 
 const editorOptions = {
-  // uploadAction: 'http://youruploadApi?action=uploadimage&encode=utf-8',
+  uploadAction: 'http://youruploadApi?action=uploadimage&encode=utf-8',
   uploadFileName: 'filename',
   uploadData: { type: '1' },
- // debug: true,
+  debug: true,
 }
 function handleChange(value) {
   console.log(value)
