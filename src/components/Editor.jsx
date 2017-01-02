@@ -39,6 +39,7 @@ export default class Editor extends React.Component {
     options.uploadFileName = options.uploadFileName || 'filename';
     options.uploadAction = options.uploadAction || '';
     options.uploadData = options.uploadData || { type: '1' };
+    options.debug = options.debug || false;
     const propsImg = {
       name: options.uploadFileName,
       action: options.uploadAction,
@@ -51,9 +52,9 @@ export default class Editor extends React.Component {
       onChange: this.addImage.bind(this),
     };
     let toolBar = '';
-    if (options.uploadApi) {
+    if (options.uploadAction) {
       if (options.debug) {
-        console.log(`Your upload config : ${options}`)
+        console.log('Your upload config: ', options)
       }
       toolBar = (
         <div>
