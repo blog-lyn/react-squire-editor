@@ -16,10 +16,11 @@ export default class Editor extends React.Component {
     this.editor = null;
   }
   editorValueChanged(e) {
-    if (typeof this.props.onChange === 'function') {
-      this.props.onChange(this.editor.getHTML());
+    const currentContent = this.editor.getHTML();
+    if (typeof this.props.onChange === 'function' && currentContent.length !== this.props.content.length) {
+      this.props.onChange(currentContent);
     } else {
-      console.log(this.editor.getHTML());
+      console.log(currentContent);
     }
   }
   addImage(info) {
@@ -69,10 +70,10 @@ export default class Editor extends React.Component {
         </div>
       );
     }
-
     return (
       <div style={{ width: '100%', height: 'auto', minHeight: '50px', margin: '10px auto', border: '1px solid #d9d9d9', paddingBottom: '10px', borderRadius: '6px' }}>
-        <div style={{ height: 'auto', minHeight: '50px', outline: 'none', padding: ' 10px 10px 0', fontSize: '15px' }} ref="editor"></div>
+        <div style={{ height: 'auto', minHeight: '50px', outline: 'none', padding: ' 10px 10px 0', fontSize: '15px' }} ref="editor">
+        </div>
         {toolBar}
       </div>
     );
